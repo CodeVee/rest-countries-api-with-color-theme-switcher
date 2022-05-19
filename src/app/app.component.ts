@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Theme } from './models/theme.enum';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'rest-countries-themed';
-}
+  theme = Theme.Light;
+
+  private changeTheme(theme: Theme): void {
+    this.theme = theme;
+  }
+ }
