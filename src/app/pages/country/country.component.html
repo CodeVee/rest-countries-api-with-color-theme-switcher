@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <a routerLink="" class="wrapper__btn">
+    <img src="assets/arrow-back-light.svg" alt="arrow__back">
+    <span>Back</span>
+  </a>
+  <ng-container *ngIf="country$ | async as country" >
+    <div class="country">
+      <figure class="country__img">
+        <img [src]="country.flag" [alt]="country.name">
+      </figure>
+      <div class="country__details">
+        <h1 class="country__name">{{country.name}}</h1>
+        <div class="country__info">
+          <div class="country__main">
+            <h2 class="country__detail">Native Name: <span>{{country.nativeName}}</span></h2>
+            <h2 class="country__detail">Population: <span>{{country.population |number:'1.0-0'}}</span></h2>
+            <h2 class="country__detail">Region: <span>{{country.region}}</span></h2>
+            <h2 class="country__detail">Sub Region: <span>{{country.subregion}}</span></h2>
+            <h2 class="country__detail">Capital: <span>{{country.capital}}</span></h2>
+          </div>
+          <div class="country__sub">
+            <h2 class="country__detail">Top Level Domain: <span>{{country.topLevelDomain}}</span></h2>
+            <h2 class="country__detail">Currencies:
+              <span *ngFor="let c of country.currencies; let i = index">
+                {{c.name}}{{country.currencies.length > i + 1 ? ',' : ''}}
+              </span>
+            </h2>
+            <h2 class="country__detail">Languages:
+              <span *ngFor="let c of country.languages; let i = index">
+                {{c.name}}{{country.languages.length > i + 1 ? ',' : ''}}
+              </span>
+            </h2>
+          </div>
+        </div>
+        <div class="country__other">
+          <h3 class="country__detail">Border Countries:</h3>
+          <div class="country__border">
+            <span *ngFor="let border of country.borders">{{border}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
