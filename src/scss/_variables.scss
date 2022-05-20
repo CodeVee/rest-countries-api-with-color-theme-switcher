@@ -17,19 +17,25 @@ $mobile: 400px;
 $mobile-wide: 430px;
 $desktop: 1280px;
 
+$primary-bg: 'primary-bgs';
+$secondary-bg: 'secondary-bg';
+$card-bg: 'card-bg';
+$text-color: 'text-color';
+$input-color: 'input-color';
+
 $themes: (
-  "dark": (
-    "primary-bg": $very-dark-blue,
-    "secondary-bg": $dark-blue,
-    "card-bg": $dark-blue,
-    "text-color": $white,
-    "input-color": $white
+  'dark': (
+    $primary-bg: $very-dark-blue,
+    $secondary-bg: $dark-blue,
+    $card-bg: $dark-blue,
+    $text-color: $white,
+    $input-color: $white
   ),
-  "light": (
-    "primary-bg": $very-light-gray,
-    "secondary-bg": $white,
-    "card-bg": $white,
-    "text-color": $deep-dark-blue,
-    "input-color": $dark-gray
+  'light': (
+    $primary-bg: $very-light-gray,
+    $secondary-bg: $white,
+    $card-bg: $white,
+    $text-color: $deep-dark-blue,
+    $input-color: $dark-gray
   ),
 );

@@ -1,0 +1,43 @@
+@import 'variables';
+@import 'mixins';
+
+.navbar {
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__header {
+    font-weight: $fw-800;
+    font-size: 2.4rem;
+    line-height: 3.3rem;
+
+    // @include desktop {
+    //   font-size: 5rem;
+    // }
+
+    @include themify($themes) {
+      background: themed(text-color);
+    }
+  }
+
+  &__btn {
+    outline: none;
+    border: none;
+    background: transparent;
+    font-weight: $fw-600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    @include themify($themes) {
+      color: themed("text-color");
+    }
+
+    span {
+      margin-left: .8rem;
+    }
+  }
+}
