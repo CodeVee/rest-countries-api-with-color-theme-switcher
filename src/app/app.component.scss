@@ -1,4 +1,3 @@
-@import 'variables';
 @import 'layout';
 @import 'mixins';
 
@@ -20,4 +19,8 @@
   @include themify($themes) {
     background: themed($primary-bg);
   }
+}
+
+.bar {
+  width: 48rem;
 }

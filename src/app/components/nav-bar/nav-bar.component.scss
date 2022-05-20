@@ -1,4 +1,3 @@
-@import 'variables';
 @import 'mixins';
 
 .navbar {
@@ -11,13 +10,10 @@
     font-weight: $fw-800;
     font-size: 2.4rem;
     line-height: 3.3rem;
-
-    // @include desktop {
-    //   font-size: 5rem;
-    // }
+    color: $deep-dark-blue;
 
     @include themify($themes) {
-      background: themed(text-color);
+      color: themed(text-color);
     }
   }
 
@@ -30,10 +26,11 @@
     line-height: 2.2rem;
     display: flex;
     align-items: center;
+    color: $deep-dark-blue;
     cursor: pointer;
 
     @include themify($themes) {
-      color: themed("text-color");
+      color: themed(text-color);
     }
 
     span {

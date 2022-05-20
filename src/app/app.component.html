@@ -6,6 +6,9 @@
   </nav>
   <main class="main">
     <div class="container">
+      <div class="bar">
+        <app-search-bar (textChanged)="osapa = $event"></app-search-bar>
+      </div>
       <router-outlet></router-outlet>
     </div>
   </main>

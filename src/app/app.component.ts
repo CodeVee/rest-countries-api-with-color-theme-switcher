@@ -12,6 +12,7 @@ import { ThemeService } from './services/theme.service';
 export class AppComponent implements OnInit, OnDestroy {
   theme!: Theme;
   protected sub = new Subject();
+  osapa = ''
 
   constructor(private themeService: ThemeService) { }
 
