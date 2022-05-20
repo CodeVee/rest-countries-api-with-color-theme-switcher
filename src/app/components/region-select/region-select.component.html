@@ -1,7 +1,7 @@
 <div class="wrapper">
   <button class="select" (click)="toggleOptions()">
     <span>{{option === 'All' ? 'Filter by Region' : option}}</span>
-    <img src="assets/chevron-down-outline.svg" alt="down-arrow">
+    <img class="select__drop" [ngClass]="{'select__drop--active': showOptions}" src="assets/chevron-down-outline.svg" alt="down-arrow">
   </button>
   <div class="select__options" [ngClass]="{'select__options--show': showOptions}">
     <button class="select__option" (click)="optionSelected('All')">All</button>

@@ -6,20 +6,6 @@
   </nav>
   <main class="main">
     <div class="container">
-      <div class="wrapper">
-        <div class="bar">
-          <app-search-bar (textChanged)="updateSearch($event)"></app-search-bar>
-        </div>
-        <div class="drop">
-          <app-region-select [options]="options" (optionChanged)="filterByRegion($event)"></app-region-select>
-        </div>
-      </div>
-
-      <div class="grid">
-        <a style="text-decoration: none;" *ngFor="let country of filteredCountries" [routerLink]="['/country', country.name]">
-          <app-country-card  [country]="country" ></app-country-card>
-        </a>
-      </div>
       <router-outlet></router-outlet>
     </div>
   </main>
