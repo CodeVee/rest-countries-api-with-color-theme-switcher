@@ -53,7 +53,9 @@
               "src/styles.scss"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/scss"]
+              "includePaths": [
+                "src/scss"
+              ]
             },
             "scripts": []
           },
@@ -125,9 +127,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "rest-countries-themed"
+  "defaultProject": "rest-countries-themed",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
