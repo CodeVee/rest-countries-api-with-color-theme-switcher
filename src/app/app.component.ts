@@ -14,7 +14,10 @@ import { ThemeService } from './services/theme.service';
 export class AppComponent implements OnInit, OnDestroy {
   theme!: Theme;
   countries: Country[] = [];
+  regionalCountries: Country[] = [];
   filteredCountries: Country[] = [];
+  options: string[] = [];
+  searchText = '';
   protected sub = new Subject();
 
   constructor(private themeService: ThemeService,
@@ -27,8 +30,10 @@ export class AppComponent implements OnInit, OnDestroy {
     this.countryService.getAllCountries()
     .pipe(takeUntil(this.sub))
     .subscribe(res => {
-      this.countries = res.slice(0, 4);
-      this.filteredCountries = [ ...this.countries ];
+      this.options = [ ...new Set(res.map(c => c.region)) ];
+      this.countries = res.slice(0, 12);
+      this.regionalCountries = [ ...this.countries ];
+      this.filteredCountries = [ ...this.regionalCountries ];
     });
   }
 
@@ -41,8 +46,24 @@ export class AppComponent implements OnInit, OnDestroy {
     this.themeService.changeTheme(theme);
   }
 
-  filterCountries(text: string): void {
-    this.filteredCountries = this.countries
-    .filter(country => country.name.toLowerCase().includes(text.toLowerCase()));
+  updateSearch(text: string): void {
+    this.searchText = text.toLowerCase();
+    this.filterCountries();
+  }
+
+  filterCountries(): void {
+    this.filteredCountries = this.regionalCountries
+    .filter(country => country.name.toLowerCase().includes(this.searchText));
+  }
+
+  filterByRegion(region: string): void {
+    if (region === 'All') {
+      this.regionalCountries = [ ...this.countries];
+
+    } else {
+      this.regionalCountries = this.countries
+      .filter(country => country.region === region);
+    }
+    this.filterCountries();
   }
  }

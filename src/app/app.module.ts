@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CountryCardComponent } from './components/country-card/country-card.component';
+import { RegionSelectComponent } from './components/region-select/region-select.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CountryCardComponent } from './components/country-card/country-card.com
     NavBarComponent,
     SearchBarComponent,
     CountryCardComponent,
+    RegionSelectComponent,
   ],
   imports: [
     BrowserModule,

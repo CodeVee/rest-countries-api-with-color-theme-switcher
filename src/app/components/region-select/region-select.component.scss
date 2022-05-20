@@ -1,0 +1,66 @@
+@import 'mixins';
+
+
+.wrapper {
+  position: relative;
+}
+.select {
+  height: 5.8rem;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  padding: {
+    left: 2.4rem;
+    right: 2.2rem
+  };
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $white;
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+  border-radius: .5rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: $fw-400;
+
+  @include themify($themes) {
+    background: themed($secondary-bg);
+  }
+
+  > img {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  &__options {
+    min-height: 16.4rem;
+    width: 100%;
+    padding: 1.6rem 2.4rem;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 6.2rem;
+    background: $white;
+    box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+    border-radius: .5rem;
+    display: none;
+
+    &--show {
+      display: flex;
+    }
+
+  }
+
+  &__option {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: $deep-dark-blue;
+    cursor: pointer;
+    text-align: left;
+
+    &:not(:last-child) {
+      margin-bottom: .8rem;
+    }
+  }
+}
