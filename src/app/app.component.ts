@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Country } from './models/country.model';
 import { Theme } from './models/theme.enum';
+import { CountryService } from './services/country.service';
 import { ThemeService } from './services/theme.service';
 
 @Component({
@@ -11,14 +13,23 @@ import { ThemeService } from './services/theme.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   theme!: Theme;
+  countries: Country[] = [];
+  filteredCountries: Country[] = [];
   protected sub = new Subject();
-  osapa = ''
 
-  constructor(private themeService: ThemeService) { }
+  constructor(private themeService: ThemeService,
+              private countryService: CountryService) { }
 
   ngOnInit(): void {
     this.themeService.currentTheme$.pipe(takeUntil(this.sub))
     .subscribe(theme => this.theme = theme);
+
+    this.countryService.getAllCountries()
+    .pipe(takeUntil(this.sub))
+    .subscribe(res => {
+      this.countries = res.slice(0, 4);
+      this.filteredCountries = [ ...this.countries ];
+    });
   }
 
   ngOnDestroy(): void {
@@ -28,5 +39,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   updateTheme(theme: Theme): void {
     this.themeService.changeTheme(theme);
+  }
+
+  filterCountries(text: string): void {
+    this.filteredCountries = this.countries
+    .filter(country => country.name.toLowerCase().includes(text.toLowerCase()));
   }
  }
