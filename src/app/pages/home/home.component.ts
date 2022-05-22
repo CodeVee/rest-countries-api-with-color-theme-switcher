@@ -3,7 +3,9 @@ import { Title } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Country } from 'src/app/models/country.model';
+import { Theme } from 'src/app/models/theme.enum';
 import { CountryService } from 'src/app/services/country.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-home',
@@ -17,11 +19,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   filteredCountries: Country[] = [];
   options: string[] = [];
   searchText = '';
+  theme!: Theme;
   protected sub = new Subject();
 
-  constructor(private countryService: CountryService, private title: Title) { }
+  constructor(private countryService: CountryService, private title: Title,
+              private themeService: ThemeService) { }
 
   ngOnInit(): void {
+    this.themeService.currentTheme$.pipe(takeUntil(this.sub))
+    .subscribe(theme => this.theme = theme);
+
     this.countryService.getAllCountries()
     .pipe(takeUntil(this.sub))
     .subscribe(res => {
