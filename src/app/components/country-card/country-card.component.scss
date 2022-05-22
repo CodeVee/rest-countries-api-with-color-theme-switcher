@@ -1,4 +1,4 @@
-@import 'mixins';
+@import 'variables';
 
 .card {
   background: $white;
@@ -7,8 +7,8 @@
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
   border-radius: .5rem;
 
-  @include themify($themes) {
-    background: themed($secondary-bg);
+  &--dark {
+    background: $dark-blue;
   }
 
   &__img {
@@ -31,8 +31,8 @@
       left: 2.4rem;
     };
     color: $deep-dark-blue;
-    @include themify($themes) {
-      color: themed(text-color);
+    &--dark {
+      color: $white;
     }
   }
 
