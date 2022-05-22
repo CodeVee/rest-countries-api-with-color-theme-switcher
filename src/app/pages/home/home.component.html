@@ -8,7 +8,7 @@
 </div>
 
 <div class="grid">
-  <a style="text-decoration: none;" *ngFor="let country of filteredCountries" [routerLink]="['/country', country.name]">
+  <a class="link" *ngFor="let country of filteredCountries" [routerLink]="['/country', country.name]">
     <app-country-card [theme]="theme"  [country]="country" ></app-country-card>
   </a>
 </div>

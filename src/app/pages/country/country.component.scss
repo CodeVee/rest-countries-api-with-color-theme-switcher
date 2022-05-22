@@ -1,6 +1,13 @@
-@import 'variables';
+@import 'mixins';
 
 .wrapper {
+
+  @include mobile-wide {
+    padding: {
+      left: 1.2rem;
+      right: 1.1rem
+    };
+  }
 
   &__btn {
     width: 13.6rem;
@@ -14,7 +21,6 @@
     color: $deep-dark-blue;
     text-decoration: none;
     background: $white;
-    // box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
     border-radius: .6rem;
 
     &--dark {
@@ -27,6 +33,10 @@
       height: 2rem;
       width: 2rem;
     }
+
+    @include mobile-wide {
+      box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
+    }
   }
 }
 
@@ -34,10 +44,21 @@
 
   margin-top: 8rem;
   display: flex;
+
+  @include mobile-wide {
+    margin-top: 6.4rem;
+    flex-wrap: wrap;
+  }
   &__img {
     width: 56rem;
     height: 40.1rem;
     margin-right: 12rem;
+
+    @include mobile-wide {
+      width: 100%;
+      margin: 0;
+      height: 22.9rem;
+    }
 
     > img {
       width: 100%;
@@ -54,6 +75,11 @@
     &--dark {
       color: $white;
     }
+
+    @include mobile-wide {
+      padding-top: 0;
+      margin-top: 4.4rem;
+    }
   }
 
   &__name {
@@ -61,12 +87,23 @@
     line-height: 4.4rem;
     font-weight: $fw-800;
     margin-bottom: 2.3rem;
+
+    @include mobile-wide {
+      font-size: 2.2rem;
+      line-height: 3rem;
+      margin-bottom: 1.6rem;
+    }
   }
 
   &__info {
     display: flex;
     justify-content: space-between;
     margin-bottom: 6.8rem;
+
+    @include mobile-wide {
+      flex-direction: column;
+      margin-bottom: 3.4rem;
+    }
   }
 
   &__main, &__sub {
@@ -74,10 +111,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include mobile-wide {
+      width: 100%;
+    }
   }
 
   &__main {
     height: 16rem;
+
+    @include mobile-wide {
+      margin-bottom: 3.2rem;
+    }
   }
 
   &__sub {
@@ -90,6 +135,11 @@
     font-weight: $fw-600;
     line-height: 3.2rem;
 
+    @include mobile-wide {
+      font-size: 1.4rem;
+      font-weight: $fw-400;
+    }
+
     span {
       font-weight: $fw-300;
     }
@@ -97,6 +147,10 @@
 
   &__other {
     display: flex;
+
+    @include mobile-wide {
+      flex-direction: column;
+    }
 
     h3 {
       width: 12.8rem;
@@ -109,6 +163,12 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     margin-left: 1.6rem;
+
+    @include mobile-wide {
+      margin-left: 0;
+      margin-top: 1.6rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   &__border {
