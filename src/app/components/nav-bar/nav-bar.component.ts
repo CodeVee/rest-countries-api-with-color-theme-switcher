@@ -10,10 +10,10 @@ export class NavBarComponent implements OnChanges {
 
   @Input() theme!: Theme;
   @Output() themeChanged = new EventEmitter<Theme>();
-  lightMode = false;
+  darkMode = false;
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.lightMode = changes.theme.currentValue === Theme.Light;
+    this.darkMode = changes.theme.currentValue === Theme.Dark;
   }
 
   switchTheme(): void {

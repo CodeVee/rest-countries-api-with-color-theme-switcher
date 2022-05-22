@@ -12,8 +12,8 @@
     line-height: 3.3rem;
     color: $deep-dark-blue;
 
-    @include themify($themes) {
-      color: themed(text-color);
+    &--dark {
+      color: $white;
     }
   }
 
@@ -29,8 +29,8 @@
     color: $deep-dark-blue;
     cursor: pointer;
 
-    @include themify($themes) {
-      color: themed(text-color);
+    &--dark {
+      color: $white;
     }
 
     span {
