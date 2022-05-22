@@ -1,10 +1,11 @@
 <div class="wrapper">
-  <button class="select" (click)="toggleOptions()">
+  <button class="select" (click)="toggleOptions()" [ngClass]="{'select--dark': darkMode}">
     <span>{{option === 'All' ? 'Filter by Region' : option}}</span>
-    <img class="select__drop" [ngClass]="{'select__drop--active': showOptions}" src="assets/chevron-down-outline.svg" alt="down-arrow">
+    <img *ngIf="!darkMode" class="select__drop" [ngClass]="{'select__drop--active': showOptions}" src="assets/chevron-down-outline.svg" alt="down-arrow">
+    <img *ngIf="darkMode" class="select__drop" [ngClass]="{'select__drop--active': showOptions}" src="assets/chevron-down-dark.svg" alt="down-arrow">
   </button>
-  <div class="select__options" [ngClass]="{'select__options--show': showOptions}">
-    <button class="select__option" (click)="optionSelected('All')">All</button>
-    <button class="select__option" *ngFor="let option of options" (click)="optionSelected(option)">{{option}}</button>
+  <div class="select__options" [ngClass]="{'select__options--show': showOptions, 'select__options--dark': darkMode}">
+    <button class="select__option" [ngClass]="{'select__option--dark': darkMode}" (click)="optionSelected('All')">All</button>
+    <button class="select__option" [ngClass]="{'select__option--dark': darkMode}" *ngFor="let option of options" (click)="optionSelected(option)">{{option}}</button>
   </div>
 </div>
