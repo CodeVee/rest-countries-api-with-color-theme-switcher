@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     .pipe(takeUntil(this.sub))
     .subscribe(res => {
       this.options = [ ...new Set(res.map(c => c.region)) ];
-      this.countries = res.slice(0, 4);
+      this.countries = res;
       this.regionalCountries = [ ...this.countries ];
       this.filteredCountries = [ ...this.regionalCountries ];
     });
