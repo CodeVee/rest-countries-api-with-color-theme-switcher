@@ -3,6 +3,7 @@
   <button class="navbar__btn" [ngClass]="{'navbar__btn--dark': darkMode}" (click)="switchTheme()">
     <img *ngIf="!darkMode" src="assets/moon-outline.svg"  alt="moon">
     <img *ngIf="darkMode" src="assets/moon-sharp.svg"  alt="moon">
-    <span>Dark Mode</span>
+    <span *ngIf="!darkMode">Dark Mode</span>
+    <span *ngIf="darkMode">Light Mode</span>
   </button>
 </div>
