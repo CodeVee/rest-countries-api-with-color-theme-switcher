@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Country } from 'src/app/models/country.model';
@@ -18,17 +19,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   searchText = '';
   protected sub = new Subject();
 
-  constructor(private countryService: CountryService) { }
+  constructor(private countryService: CountryService, private title: Title) { }
 
   ngOnInit(): void {
     this.countryService.getAllCountries()
     .pipe(takeUntil(this.sub))
     .subscribe(res => {
       this.options = [ ...new Set(res.map(c => c.region)) ];
-      this.countries = res.slice(0, 32);
+      this.countries = res.slice(0, 4);
       this.regionalCountries = [ ...this.countries ];
       this.filteredCountries = [ ...this.regionalCountries ];
     });
+    this.title.setTitle('Countries: Home');
   }
 
   ngOnDestroy(): void {

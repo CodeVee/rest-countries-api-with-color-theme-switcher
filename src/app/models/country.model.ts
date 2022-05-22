@@ -26,6 +26,10 @@ export interface Country {
   independent: boolean;
 }
 
+export interface CountryBucket {
+  [key: string]: Country
+}
+
 interface Translation {
   br: string;
   pt: string;

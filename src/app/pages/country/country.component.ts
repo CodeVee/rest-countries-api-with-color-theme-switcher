@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -15,12 +16,14 @@ export class CountryComponent implements OnInit {
   country$!: Observable<Country>;
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private countryService: CountryService) { }
+              private countryService: CountryService,
+              private  title: Title) { }
 
   ngOnInit(): void {
     this.country$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         const country = params.get('country')!;
+        this.title.setTitle(`Countries: ${country}`);
         return this.countryService.getCountry(country);
       })
     );
