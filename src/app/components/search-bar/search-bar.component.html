@@ -1,0 +1,5 @@
+<div class="search" [ngClass]="{'search--dark': darkMode}">
+  <img *ngIf="!darkMode" class="search__img" src="assets/search-light.svg" alt="search">
+  <img *ngIf="darkMode" class="search__img" src="assets/search-dark.svg" alt="search">
+  <input type="text" [ngClass]="{'search__input--dark': darkMode}" [formControl]="textCtrl" placeholder="Search for a country..." class="search__input">
+</div>

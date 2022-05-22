@@ -1,0 +1,32 @@
+@import 'variables';
+@import 'mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: $font-nunito;
+  font-size: $fs-10;
+}
+
+@include desktop {
+  body, html {
+    font-size: 8.89px;
+  }
+}
+
+@include mobile-wide {
+  body, html {
+    font-size: 11.04px;
+  }
+}
+
+@include mobile {
+  body, html {
+    font-size: $fs-10;
+  }
+}
+

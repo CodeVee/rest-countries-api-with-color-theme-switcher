@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div class="bar">
+    <app-search-bar [theme]="theme" (textChanged)="updateSearch($event)"></app-search-bar>
+  </div>
+  <div class="drop">
+    <app-region-select [theme]="theme" [options]="options" (optionChanged)="filterByRegion($event)"></app-region-select>
+  </div>
+</div>
+
+<div class="grid">
+  <a class="link" *ngFor="let country of filteredCountries" [routerLink]="['/country', country.name]">
+    <app-country-card [theme]="theme"  [country]="country" ></app-country-card>
+  </a>
+</div>

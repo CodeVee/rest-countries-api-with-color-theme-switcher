@@ -1,0 +1,60 @@
+@import 'mixins';
+
+.navbar {
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__header {
+    font-weight: $fw-800;
+    font-size: 2.4rem;
+    line-height: 3.3rem;
+    color: $deep-dark-blue;
+
+    &--dark {
+      color: $white;
+    }
+
+    @include mobile-wide {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+  }
+
+  &__btn {
+    outline: none;
+    border: none;
+    background: transparent;
+    font-weight: $fw-600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    display: flex;
+    align-items: center;
+    color: $deep-dark-blue;
+    cursor: pointer;
+
+    &--dark {
+      color: $white;
+    }
+
+    @include mobile-wide {
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+    }
+
+    span {
+      margin-left: .8rem;
+    }
+
+    img {
+      width: 2rem;
+      height: 2rem;
+
+      @include mobile-wide {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+  }
+}

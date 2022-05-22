@@ -1,0 +1,13 @@
+<div class="page" [ngClass]="theme">
+  <nav class="nav">
+    <div class="container">
+      <app-nav-bar [theme]="theme" (themeChanged)="updateTheme($event)"></app-nav-bar>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+

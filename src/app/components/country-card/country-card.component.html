@@ -1,0 +1,11 @@
+<div class="card" [ngClass]="{'card--dark': darkMode}">
+  <figure class="card__img">
+    <img [src]="country.flag" [alt]="country.name">
+  </figure>
+  <div class="card__details" [ngClass]="{'card__details--dark': darkMode}">
+    <h2 class="card__name">{{country.name}}</h2>
+    <h3 class="card__info">Population: <span>{{country.population |number:'1.0-0'}}</span></h3>
+    <h3 class="card__info">Region: <span>{{country.region}}</span></h3>
+    <h3 class="card__info">Capital: <span>{{country.capital}}</span></h3>
+  </div>
+</div>

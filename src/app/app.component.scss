@@ -1,0 +1,22 @@
+@import 'layout';
+@import 'mixins';
+
+.nav {
+  box-shadow: $shadow;
+  @include themify($themes) {
+    background: themed($secondary-bg);
+  }
+}
+
+
+.main {
+  min-height: calc(100vh - 8rem);
+  padding: {
+    top:4.8rem;
+    bottom: 4.5rem;
+  }
+
+  @include themify($themes) {
+    background: themed($primary-bg);
+  }
+}
